@@ -1,0 +1,66 @@
+---
+root: true
+
+parser: babel-eslint
+
+env:
+  es2021: true
+
+extends:
+  - plugin:react/recommended
+  - airbnb-base
+
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+  ecmaVersion: 2017
+  sourceType: module
+
+  no-unused-vars: warn
+  react/no-unused-prop-types: warn
+  ### ES6 ###
+
+  ### Best practices ###
+
+  # add culry braces all the time
+  # https://eslint.org/docs/rules/curly
+  curly: [error, all] # airbnb default: [error, multi-line]
+
+  ### Import ###
+
+  # Require modules with a single export to use a default export
+  # https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md
+  import/prefer-default-export: off # airbnb default: 'error'
+
+  # https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/imports-first.md
+  import/first: off # airbnb default: ['error', 'absolute-first']
+
+  ### Debugging is allowed but not allowed to commit ###
+  no-console: warn # airbnb default: 'error'
+  no-debugger: warn # airbnb default: 'error'
+
+  ### React ###
+  # do not force jsx use js
+  # https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
+  react/jsx-filename-extension: off
+
+  # Require stateless functions when not using lifecycle methods, setState or ref
+  # https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md
+  react/prefer-stateless-function: warn # airbnb default: 'error'
+
+  # Enforce a defaultProps definition for every prop that is not a required prop
+  # reason: function composition over default props
+  # https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-default-props.md
+  react/require-default-props: off # airbnb default: 'error'
+  
+plugins:
+  - react
+  - import
+
+rules: 
+  react/prop-types: 0
+  arrow-body-style: 0
+
+settings:
+  react:
+    version: detect
